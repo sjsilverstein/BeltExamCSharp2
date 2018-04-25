@@ -1,0 +1,71 @@
+@model BeltExamCSharp2.Models.RegistrationViewModel
+<div class="row">
+    <h2>Register New User</h2>
+</div>
+<form action="RegisterUser" method="POST">
+    <div class="row">
+        <div class="col-4">
+            <label for="Email">Email:</label>
+        </div>
+        <div class="col-6">
+            <input type="email" name="Email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label for="Alias">User Name:</label>
+        </div>
+        <div class="col-6">
+            <input type="text" name="Alias">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <span asp-validation-for="Alias"></span>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label for="FirstName">Name:</label>
+        </div>
+        <div class="col-6">
+            <input type="text" name="Name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label for="Password">Password:</label>
+        </div>
+        <div class="col-6">
+            <input type="password" name="Password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label for="PasswordConfirmation">Confirm Password:</label>
+        </div>
+        <div class="col-6">
+            <input type="password" name="PasswordConfirmation">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <span asp-validation-for="PasswordConfirmation"></span>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input type="submit" value="Register" name="submit">
+        </div>
+    </div>
+</form>

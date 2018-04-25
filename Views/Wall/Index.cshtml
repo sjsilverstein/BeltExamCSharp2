@@ -1,0 +1,55 @@
+<h1>Welcome to the Login Page</h1>
+<div class="row">
+    <div class="col-10">
+        <h2>Hello @ViewBag.LoggedUser.Alias</h2>
+    </div>
+    <div class="col-2">
+        <a href="/Logoff">Logoff</a>
+    </div>
+</div>
+
+<form action="CreatePost" method="POST">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4">
+             <textarea name="Content" cols="50" rows="2"></textarea>
+        </div>
+       <div class="col-7">
+           <input type="submit" value="Post Idea!" name="submit">
+       </div>
+    </div>
+</form>
+
+@{
+    foreach (var idea in ViewBag.Ideas){
+        <hr>
+        <div class="row">
+            <div class="col-3">
+                <h5><a href="/users/@idea.Writer.UserId">@idea.Writer.Alias</a> says:</h5>
+            </div>
+            <div class="col-9">
+                <p>@idea.Content</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <a href="/CreateLike/@idea.PostId">Like</a>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <a href="/bright_ideas/@idea.PostId">Number of Likes [@idea.Likes.Count]</a>
+            </div>
+            <div class="col-1"></div>
+            @if(idea.Writer.UserId == ViewBag.LoggedUser.UserId){
+                <div class="col-2">
+                    <a href="/RemovePost/@idea.PostId">Delete</a>    
+                </div>
+
+            }
+            
+           
+        </div>
+        
+    }
+
+}

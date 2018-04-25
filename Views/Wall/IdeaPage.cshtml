@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-8"></div>
+    <div class="col-2">
+        <a href="/bright_ideas">Bright Ideas</a>
+    </div>
+    <div class="col-2">
+        <a href="/Logoff">Logoff</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h4><a href="/users/@ViewBag.ThisPost.Writer.UserId">@ViewBag.ThisPost.Writer.Alias</a> says:</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+        <p>@ViewBag.ThisPost.Content</p>
+    </div>
+</div>
+<hr>
+<h5>These People Like this Post.</h5>
+<div class="row">
+    <div class="col-2">
+        <h6>Alias</h6>
+    </div>
+    <div class="col-2">
+        <h6>Name</h6>
+    </div>
+</div>
+@{
+    foreach (var like in ViewBag.ThisPost.Likes)
+    {
+        
+        <div class="row">
+            <div class="col-2">
+                <p><a href="/users/@like.User.UserId">@like.User.Alias</a></p>
+            </div>
+            <div class="col-2">
+                <p>@like.User.Name</p>
+            </div>
+        </div>
+        
+    }
+}
+<hr>
+@{
+    foreach (var group in ViewBag.ListOfLikers)
+    {
+        
+        <div class="row">
+            <div class="col-2">
+                <p><a href="">@group.Key.[0].User.Alias</a></p>
+            </div>
+            <div class="col-2">
+                <p>Name</p>
+            </div>
+        </div>
+    }
+}
